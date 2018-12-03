@@ -1,0 +1,4 @@
+location / { }
+location /homepage/ { }
+location /profile/ { }
+location /fitness/ { }

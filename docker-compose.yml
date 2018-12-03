@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  #Proxy
+  proxy:
+    build: .
+    container_name: proxy
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - web
+
+  #HomePage
+  homepage:
+    image: nginx
+    container_name: homepage
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - web
+    volumes:
+      - /cswilson.site/mounts/home:/usr/share/nginx/html
+
+  #Profile
+  profile:
+    image: nginx
+    container_name: profile
+    restart: always
+    ports:
+      - "3001:3001"
+    networks:
+      - web
+    volumes:
+      - /cswilson.site/mounts/profile:/usr/share/nginx/html
+  
+  #Fitness
+  fitness:
+    image: nginx
+    container_name: fitness
+    restart: always
+    ports:
+      - "3002:3002"
+    networks:
+      - web
+    volumes:
+      - /cswilson.site/mounts/fitness:/usr/share/nginx/html
+
+networks:
+  web:
+    external: true
+
