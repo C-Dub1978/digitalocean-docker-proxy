@@ -23,29 +23,41 @@ services:
     volumes:
       - /cswilson.site/mounts/home:/usr/share/nginx/html
 
-  #Profile
-  profile:
-    image: nginx
-    container_name: profile
-    restart: always
-    ports:
-      - "3001:3001"
-    networks:
-      - web
-    volumes:
-      - /cswilson.site/mounts/profile:/usr/share/nginx/html
-  
   #Fitness
   fitness:
     image: nginx
     container_name: fitness
     restart: always
     ports:
-      - "3002:3002"
+      - "3001:3001"
     networks:
       - web
     volumes:
       - /cswilson.site/mounts/fitness:/usr/share/nginx/html
+
+  #Biosite
+  biosite:
+    image: nginx
+    container_name: biosite
+    restart: always
+    ports:
+      - "3002:3002"
+    networks:
+      - web
+    volumes:
+      - /cswilson.site/mounts/biosite:/usr/share/nginx/html
+
+  #uhost
+  uhost:
+    image: nginx
+    container_name: uhost
+    restart: always
+    ports:
+      - "3003:3003"
+    networks:
+      - web
+    volumes:
+      - /cswilson.site/mounts/uhost:/usr/share/nginx/html
 
 networks:
   web:

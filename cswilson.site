@@ -1,4 +1,5 @@
 location / { }
 location /homepage/ { }
-location /profile/ { }
 location /fitness/ { }
+location /biosite/ { }
+location /uhost/ { }
