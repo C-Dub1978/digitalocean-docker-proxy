@@ -3,3 +3,5 @@ location /homepage/ { }
 location /fitness/ { }
 location /biosite/ { }
 location /uhost/ { }
+location /goodguys/ { }
+location /trivia/ { }

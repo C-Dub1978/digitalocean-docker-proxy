@@ -1,9 +1,95 @@
-<doctype html>
-<html>
-  <head><title>profile</title></head>
-<body>
-  <h1>Homepage</h1>
-  <a href="/fitness">Fitness</a>
-  <a href="/profile">Profile</a>
-</body>
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Christopher Wilson Portfolio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich|Electrolize|Sarpanch:700"
+      rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <header class="header-row">
+        <div class="row header-name">
+          <div class="name"><h4>Christopher S. Wilson</h4></div>
+          <!-- add animated circles -->
+          <div class="circle red" style="animation-delay: 0s"></div>
+        </div>
+        <div class="row header-nav">
+          <span class="name-description">
+            <img src="/images/angular.png" alt="Angular Icon" height="70px" width="70px">
+            <h5>ngular Developer</h5>
+          </span>
+          <nav class="navbar navbar-dark navbar-expand-sm">
+            <button
+              class="toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#links"
+              aria-controls="links"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span>
+                <i class="fas fa-bars"></i>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse"
+              id="links">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link"
+                  href="#projects">Projects</a>
+                <a class="nav-item nav-link"
+                  href="#designs">Designs</a>
+                <a class="nav-item nav-link"
+                  href="#">Github</a>
+                <a class="nav-item nav-link"
+                  href="#">Email</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <hr>
+    </div>
+    <main>
+      <div class="row about">
+        <h5>About</h5>
+        <hr>
+        <div class="row terminal-menu">
+          <ul>
+            <li>File</li>
+            <li>Edit</li>
+            <li>View</li>
+            <li>Search</li>
+            <li>Terminal</li>
+            <li>Help</li>
+          </ul>
+        </div>
+        <div class="row terminal-body">
+          <h6 class="localhost">localUser at localmachine.localhost#</h6>
+          <div class="terminal-prompt" id="terminal-prompt"></div>
+        </div>
+      </div>
+      <div class="row projects" id="projects">
+        <h5>Projects</h5>
+      </div>
+      <div class="row designs" id="designs"></div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+      integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+      crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script>type()</script>
+  </body>
 </html>

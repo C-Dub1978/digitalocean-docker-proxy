@@ -19,6 +19,12 @@ http {
             proxy_set_header X-Real-IP $remote_addr;
         }
 
+        location /jenkins/ {
+            proxy_pass http://jenkins/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }
+
         location /fitness/ {
             proxy_pass http://fitness/;
             proxy_set_header Host $host;

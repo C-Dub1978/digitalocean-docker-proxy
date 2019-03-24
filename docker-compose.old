@@ -25,9 +25,9 @@ services:
 
   #Fitness
   fitness:
-    build:
-      context: /cswilson.site/conf/fitness/
-      dockerfile: Dockerfile-fitness
+     build:
+       context: ./conf/fitness/
+       dockerfile: Dockerfile-fitness
     container_name: fitness
     restart: always
     ports:
@@ -35,8 +35,8 @@ services:
     networks:
       - web
     volumes:
-     - /cswilson.site/mounts/fitness:/usr/local/apache2/htdocs
-  
+      - /cswilson.site/mounts/fitness:/var/www/html
+   
   #Biosite
   biosite:
     image: nginx

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>KnockoutJS Trivia - Team Alpha Queue</title>
+    <meta name="description" content="Trivia Game" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Catamaran:300,700|Shadows+Into+Light"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <header class="header">
+          <h1>Knockout.js</h1>
+          <h1 data-bind="visible: userName()">
+            Welcome, <span data-bind="text: userName()">!</span>
+          </h1>
+        </header>
+      </div>
+    </div>
+    <!--Spacer row, 50px -->
+    <div class="row spacer-row"></div>
+    <!-- 3 columns, left, main, right-->
+    <div class="row">
+      <div class="col-sm-2 outer-col"></div>
+      <!--Inject templates here: landing, questions, results -->
+      <div class="col-sm-8 center-col">
+        <!-- START INJECTED CONTENT -->
+        <div data-bind="template: {name: currentTemplate() }"></div>
+        <!--END INJECTED CONTENT -->
+      </div>
+      <div class="col-sm-2 outer-col"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+      integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script src="./js/build-questions.js"></script>
+    <script src="./js/questions-answers.js"></script>
+    <script src="./view-models/view-model.js"></script>
+    <!--TEMPLATES -->
+    <!--Landing page template -->
+    <script type="text/html" id="landing-container">
+      <div class="landing-container">
+        <div class="row landing-header">
+          <div class="javascript-quiz">
+            <h1>Javascript Quiz</h1>
+          </div>
+          <div class="test-your-knowledge">
+            <h3>Test your knowledge of beginner Javascript</h3>
+          </div>
+        </div>
+        <div class="row landing-userName">
+          <div class="userName">
+            <label for="userName">User Name:</label>
+            <input
+              type="text"
+              data-bind="value: userName()"
+              id="userName"
+              class="form-control"
+            />
+          </div>
+          <div class="submit">
+            <button class="btn-submit" data-bind="click: submitUsername">
+              Begin!
+            </button>
+          </div>
+        </div>
+      </div>
+    </script>
+    <!--End landing page template -->
+    <!--Q&A template -->
+    <script type="text/html" id="qa-container">
+            <div class="question-answers-container">
+        <div class="row progress">
+          <div
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            style="width: 100%"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <span data-bind="text: progress"></span>
+          </div>
+        </div>
+        <div class="row question-number">
+          <h3>
+            Question Number
+            <span data-bind="text: currentId() + 1"></span>
+          </h3>
+        </div>
+        <div class="row question-answers-body">
+          <div class="question"><pre data-bind="text: questionsArray()[currentId()].question"></pre></div>
+          <div class="answers">
+              <ul data-bind="foreach: questionsArray()[currentId()].answers">
+              <li>
+                <input
+                  type="radio"
+                  data-bind="attr: { name: $parent.currentId(), value: $parent.currentId() }"
+                /><pre data-bind="text: $data"></pre>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row question-answers-navigation-icons">
+          <div class="col-sm-3"></div>
+          <div
+            class="col-sm-3 left-arrow"
+            data-bind="click: navigatePrevious"
+          >
+            <i data-bind="visible: currentId() !== 0" class="far fa-arrow-alt-circle-left fa-2x"></i>
+          </div>
+          <div
+            class="col-sm-3 right-arrow"
+            data-bind="click: navigateNext"
+          >
+            <i data-bind="visible: currentId() !== 9" class="far fa-arrow-alt-circle-right fa-2x"></i>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+        <div class="row submit-all-questions">
+          <button class="btn-submit" data-bind="visible: currentId() === 9, click: submitAll">
+            Submit Answers
+          </button>
+        </div>
+      </div>
+    </script>
+    <!-- End Q&A template-->
+    <!--Results template -->
+    <script type="text/html" id="results-container">
+      <div class="results-container" id="results-container">
+        <h1>Results</h1>
+        <h3>
+          <span data-bind="text: resultsPercent()" /> Correct!
+        </h3>
+        <h3>
+          Knowledge rank: <span data-bind="results-rank" />
+        </h3>
+        <h4 data-bind="visible: resultsPercent() < 100">Missed questions</h4>
+        <div class="missed-questions-container">
+          <p>Question</p>
+          <p>Answer:</p>
+        </div>
+        <button class="btn btn-secondary" id="restart-button" data-bind="click: restartGame">
+          Try Again
+        </button>
+      </div>
+    </script>
+    <!--End results template -->
+    <script>
+      // Load the viewModel after DOM is rendered
+      $(document).ready(function() {
+        ko.applyBindings(new MainViewModel());
+      });
+    </script>
+  </body>
+</html>

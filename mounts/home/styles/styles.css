@@ -1,0 +1,211 @@
+/**
+font-family: 'Electrolize', sans-serif; - Thinnest font
+font-family: 'Aldrich', sans-serif; - Second thinnest font
+font-family: 'Sarpanch', sans-serif; - For headers
+*/
+
+/**
+blackish - #0a0f0d
+dark jade - #0b3c49
+Maroon - #41292c
+Reddish - #d33f49
+Flo green - #5dd368
+*/
+
+body {
+  background-image: linear-gradient(
+    to left bottom,
+    #41292c,
+    #402a36,
+    #3b2e40,
+    #313247,
+    #22374b,
+    #1b4559,
+    #0e5364,
+    #00616b,
+    #007e7d,
+    #009c82,
+    #00b87b,
+    #5dd368
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Electrolize", sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: darkgray;
+  padding: 15px;
+  z-index: -2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sarpanch", sans-serif;
+  color: darkgray;
+}
+
+hr {
+  height: 2px;
+  color: #d33f49;
+  background-color: #d33f49;
+  border: none;
+  margin-top: 5px !important;
+}
+
+.header-row {
+  background-image: url("../images/honeycombSmall.png");
+  background-repeat: repeat;
+  background-size: contain;
+}
+
+.name {
+  z-index: 100;
+}
+
+.name h4 {
+  color: darkgray;
+  text-shadow: 1px 1px 2px #d33f49;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.circle.red {
+  background: #d33f49;
+}
+
+.name-description h5 {
+  display: inline;
+  position: relative;
+  right: 24px;
+}
+
+nav {
+  padding-bottom: 0 !important;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 100px;
+}
+
+.nav-link {
+  color: #5dd368 !important;
+  font-family: "Electrolize", sans-serif !important;
+}
+
+.nav-link:hover {
+  color: #5dd368 !important;
+  text-shadow: 1px 1px 15px #d33f49 !important;
+}
+
+.toggler {
+  background: transparent;
+  border: 1px solid darkgray;
+  text-shadow: 1px 1px 2px #d33f49;
+  border-radius: 0.25em;
+}
+
+.toggler:active,
+.toggler:focus {
+  outline: none;
+}
+
+.fas.fa-bars {
+  color: #d33f49 !important;
+}
+
+.row.about,
+.row.projects,
+.row.designs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.terminal-menu {
+  width: 60%;
+  height: 30px;
+  background: darkgray;
+  margin: 0;
+  padding: 0;
+}
+
+.terminal-menu > ul {
+  list-style: none;
+  padding: 0 0 0 15px;
+  height: 30px;
+  margin: 0;
+}
+
+.terminal-menu > ul > li {
+  font-family: "Electrolize", sans-serif;
+  font-weight: 100;
+  color: #000;
+  display: inline;
+  margin: 0 8px;
+}
+
+.terminal-body {
+  width: 60%;
+  height: 500px;
+  background: #0b3c49;
+  border: 1px solid darkgray;
+  color: #d33f49;
+  padding: 15px;
+  box-shadow: 1px 1px 10px #000;
+}
+
+.terminal-prompt {
+  height: 460px;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.localhost {
+  height: 50px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0;
+}
+
+@media only screen and (max-width: 575px) {
+  .header-nav {
+    justify-content: flex-start;
+  }
+
+  .terminal-menu,
+  .terminal-body {
+    width: 90%;
+  }
+
+  .terminal-menu > ul > li {
+    font-size: 0.6rem;
+  }
+
+  .terminal-body {
+    height: 500px;
+  }
+}
+
+@media only screen and (min-width: 575px) {
+  .toggler {
+    visibility: hidden;
+  }
+}
